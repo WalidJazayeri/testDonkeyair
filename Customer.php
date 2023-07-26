@@ -14,20 +14,6 @@ class Customer
     private string $password;
     private bool $admin;
 
-    public function __construct(int $id, $PDO){
-        $query="SELECT * from customer where id=:id";
-        $statement = $PDO->prepare($query);
-        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
-        $statement->execute();
-        $customer = $statement->fetch(PDO::FETCH_ASSOC);
-        $this->id = $customer["id"];
-        $this->firstname = $customer["firstname"];
-        $this->lastname = $customer["lastname"];
-        $this->email = $customer["email"];
-        $this->password = $customer["password"];
-        $this->admin = $customer["admin"];
-    }
-
     public function getId()
     {
         return $this->id;

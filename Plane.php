@@ -7,20 +7,6 @@ class Plane
     private int $capacity;
     private bool $full;
 
-
-    public function __construct(int $id, $PDO){
-        $query="SELECT * from plane where id=:id";
-        $statement = $PDO->prepare($query);
-        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
-        $statement->execute();
-        $customer = $statement->fetch(PDO::FETCH_ASSOC);
-        $this->id = $customer["id"];
-        $this->name = $customer["name"];
-        $this->capacity = $customer["capacity"];
-        $this->full = $customer["full"];
-    }
-
-
     public function getId()
     {
         return $this->id;

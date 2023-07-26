@@ -1,22 +1,10 @@
 <?php
 
-class FlightPaper
+class Flight_Paper
 {
     private int $id;
-    private int $flightId;
-    private int $customerId;
-
-    public function __construct(int $id, $PDO){
-        $query="SELECT * from flight_paper where id=:id";
-        $statement = $PDO->prepare($query);
-        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
-        $statement->execute();
-        $customer = $statement->fetch(PDO::FETCH_ASSOC);
-        $this->id = $customer["id"];
-        $this->flightId = $customer["flight_id"];
-        $this->customerId = $customer["customer_id"];
-    }
-
+    private int $flight_id;
+    private int $customer_id;
 
     public function getId()
     {
@@ -30,26 +18,26 @@ class FlightPaper
         return $this;
     }
 
-    public function getFlightId()
+    public function getFlight_id()
     {
-        return $this->flightId;
+        return $this->flight_id;
     }
 
-    public function setFlightId($flightId)
+    public function setFlight_id($flight_id)
     {
-        $this->flightId = $flightId;
+        $this->flight_id = $flight_id;
 
         return $this;
     }
 
-    public function getCustomerId()
+    public function getCustomer_id()
     {
-        return $this->customerId;
+        return $this->customer_id;
     }
 
-    public function setCustomerId($customerId)
+    public function setCustomer_id($customer_id)
     {
-        $this->customerId = $customerId;
+        $this->customer_id = $customer_id;
 
         return $this;
     }

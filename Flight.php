@@ -5,32 +5,13 @@ class Flight
     private int $id;
     private int $num;
     private string $date;
-    private string $departureTime;
-    private string $arrivalTime;
+    private string $departure_time;
+    private string $arrival_time;
     private float $price;
-    private string $firstAirport;
-    private string $lastAirport;
-    private int $planeId;
-
-
-    public function __construct(int $id, $PDO){
-        $query="SELECT * from flight where id=:id";
-        $statement = $PDO->prepare($query);
-        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
-        $statement->execute();
-        $customer = $statement->fetch(PDO::FETCH_ASSOC);
-        $this->id = $customer["id"];
-        $this->num = $customer["num"];
-        $this->date = $customer["date"];
-        $this->departureTime = $customer["departure_time"];
-        $this->arrivalTime = $customer["arrival_time"];
-        $this->price = $customer["price"];
-        $this->firstAirport = $customer["first_airport"];
-        $this->lastAirport = $customer["last_airport"];
-        $this->planeId = $customer["plane_id"];
-    }
+    private string $first_airport;
+    private string $last_airport;
+    private int $plane_id;
     
-
     public function getId()
     {
         return $this->id;
@@ -67,26 +48,26 @@ class Flight
         return $this;
     }
 
-    public function getDepartureTime()
+    public function getDeparture_time()
     {
-        return $this->departureTime;
+        return $this->departure_time;
     }
 
-    public function setDepartureTime($departureTime)
+    public function setDeparture_time($departure_time)
     {
-        $this->departureTime = $departureTime;
+        $this->departure_time = $departure_time;
 
         return $this;
     }
 
-    public function getArrivalTime()
+    public function getArrival_time()
     {
-        return $this->arrivalTime;
+        return $this->arrival_time;
     }
 
-    public function setArrivalTime($arrivalTime)
+    public function setArrival_time($arrival_time)
     {
-        $this->arrivalTime = $arrivalTime;
+        $this->arrival_time = $arrival_time;
 
         return $this;
     }
@@ -103,38 +84,38 @@ class Flight
         return $this;
     }
 
-    public function getFirstAirport()
+    public function getFirst_airport()
     {
-        return $this->firstAirport;
+        return $this->first_airport;
     }
 
-    public function setFirstAirport($firstAirport)
+    public function setFirst_airport($first_airport)
     {
-        $this->firstAirport = $firstAirport;
+        $this->first_airport = $first_airport;
 
         return $this;
     }
 
-    public function getLastAirport()
+    public function getLast_airport()
     {
-        return $this->lastAirport;
+        return $this->last_airport;
     }
 
-    public function setLastAirport($lastAirport)
+    public function setLast_airport($last_airport)
     {
-        $this->lastAirport = $lastAirport;
+        $this->last_airport = $last_airport;
 
         return $this;
     }
 
-    public function getPlaneId()
+    public function getPlane_id()
     {
-        return $this->planeId;
+        return $this->plane_id;
     }
 
-    public function setPlaneId($planeId)
+    public function setPlane_id($plane_id)
     {
-        $this->planeId = $planeId;
+        $this->plane_id = $plane_id;
 
         return $this;
     }
