@@ -7,14 +7,27 @@ class Flight
     private string $date;
     private string $departureTime;
     private string $arrivalTime;
-    private int $price;
+    private float $price;
     private string $firstAirport;
     private string $lastAirport;
     private int $planeId;
 
 
-    public function __construct(int $price){
-        $this->price=$price;
+    public function __construct(int $id, $PDO){
+        $query="SELECT * from flight where id=:id";
+        $statement = $PDO->prepare($query);
+        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+        $customer = $statement->fetch(PDO::FETCH_ASSOC);
+        $this->id = $customer["id"];
+        $this->num = $customer["num"];
+        $this->date = $customer["date"];
+        $this->departureTime = $customer["departure_time"];
+        $this->arrivalTime = $customer["arrival_time"];
+        $this->price = $customer["price"];
+        $this->firstAirport = $customer["first_airport"];
+        $this->lastAirport = $customer["last_airport"];
+        $this->planeId = $customer["plane_id"];
     }
     
 
