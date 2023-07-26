@@ -18,6 +18,11 @@ function connexion(){
     $pdo = new \PDO(DSN, USER, PASS);
     return $pdo;
 }
-
+try {
+    $PDO = connexion();
+} catch (Exception $e){
+    echo "Erreur de connex";
+    die();
+}
 
 ?>
