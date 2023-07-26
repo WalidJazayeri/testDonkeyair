@@ -1,6 +1,7 @@
 
 <?php
-require_once'PdoConnect.php';
+
+require_once 'PdoConnect.php';
 
 
 
@@ -13,8 +14,7 @@ class Customer
     private string $password;
     private bool $admin;
 
-    public function __construct(int $id){
-        $PDO = connexion();
+    public function __construct(int $id, $PDO){
         $query="SELECT * from customer where id=:id";
         $statement = $PDO->prepare($query);
         $statement->bindValue(':id', $id, \PDO::PARAM_INT);
