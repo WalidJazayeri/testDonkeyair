@@ -1,5 +1,6 @@
 <?php
 
+
 function connexion(){
     // de creer une connexion à la B.D
     // on a besoin de 3 infos qu'on stock dans des variables constantes
@@ -12,17 +13,21 @@ function connexion(){
     define('USER', 'root');
     // on doit definir un mot de passe
     // on le stock dans la variable constant PASS
-    define('PASS', '');
+    define('PASS', 'password');
     // creer un objet permettant une connexion à la B.D. 
     // 
     $pdo = new \PDO(DSN, USER, PASS);
     return $pdo;
 }
 try {
-    $PDO = connexion();
+    $pdo = connexion();
+    echo "connexion reussi";
 } catch (Exception $e){
-    echo "Erreur de connex";
+    echo "Erreur de connex$e";
     die();
 }
+
+
+
 
 ?>
