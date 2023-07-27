@@ -1,10 +1,13 @@
 <?php
 
+require_once "header.php";
+
 class Flight
 {
     private int $id;
     private int $num;
     private string $date;
+    private string $arrival_date;
     private string $departure_time;
     private string $arrival_time;
     private float $price;
@@ -116,6 +119,18 @@ class Flight
     public function setPlane_id($plane_id)
     {
         $this->plane_id = $plane_id;
+
+        return $this;
+    }
+
+    public function getArrival_date()
+    {
+        return $this->arrival_date;
+    }
+
+    public function setArrival_date($arrival_date)
+    {
+        $this->arrival_date = $arrival_date;
 
         return $this;
     }

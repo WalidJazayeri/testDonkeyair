@@ -1,5 +1,7 @@
 <?php
 
+require_once "header.php";
+
 class Flight_Paper
 {
     private int $id;

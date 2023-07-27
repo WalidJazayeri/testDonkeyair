@@ -1,5 +1,7 @@
 <?php
 
+require_once "header.php";
+
 class Plane
 {
     private int $id;
@@ -55,3 +57,4 @@ class Plane
         return $this;
     }
 }
+?>

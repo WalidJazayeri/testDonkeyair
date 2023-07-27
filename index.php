@@ -1,8 +1,8 @@
 <?php
-include 'header.php';
+
+require_once "header.php";
 
 
+require_once "footer.php";
 
-include 'footer.php'
 ?>
-
